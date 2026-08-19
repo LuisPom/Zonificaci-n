@@ -13,10 +13,10 @@ import os
 # =============================================================================
 
 # Cargar el dataset principal con asignaciones de clústeres y misiones
-#df = pd.read_csv('.\dataset_with_missions.csv')
+df = pd.read_csv('.dataset_with_missions.csv')
 #df = pd.read_csv('evaluation_results/operational_interpretation/dataset_with_missions.csv')
-csv_path_missions = os.path.join('evaluation_results', 'operational_interpretation', 'dataset_with_missions.csv')
-df = pd.read_csv(csv_path_missions)
+#csv_path_missions = os.path.join('evaluation_results', 'operational_interpretation', 'dataset_with_missions.csv')
+#df = pd.read_csv(csv_path_missions)
 
 # Verificar columnas necesarias
 required_cols = [
@@ -274,8 +274,9 @@ sensitive_group.add_to(m)
 # Cargar anomalías de consenso
 try:
     #anomaly_df = pd.read_csv('evaluation_results/anomaly_detection/anomaly_detection_results.csv')
-    csv_path_results = os.path.join('evaluation_results', 'operational_interpretation', 'anomaly_detection_results.csv')
-    df = pd.read_csv(csv_path_results)
+    #csv_path_results = os.path.join('evaluation_results', 'operational_interpretation', 'anomaly_detection_results.csv')
+    #df = pd.read_csv(csv_path_results)
+    df = pd.read_csv('anomaly_detection_results.csv')
     anomaly_indices = set()
     if 'anomaly_consensus' in anomaly_df.columns:
         anomaly_indices = set(anomaly_df[anomaly_df['anomaly_consensus'] == 1].index)
