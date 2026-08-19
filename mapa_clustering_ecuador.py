@@ -13,7 +13,7 @@ import os
 # =============================================================================
 
 # Cargar el dataset principal con asignaciones de clústeres y misiones
-df = pd.read_csv('.dataset_with_missions.csv')
+df = pd.read_csv('dataset_with_missions.csv')
 #df = pd.read_csv('evaluation_results/operational_interpretation/dataset_with_missions.csv')
 #csv_path_missions = os.path.join('evaluation_results', 'operational_interpretation', 'dataset_with_missions.csv')
 #df = pd.read_csv(csv_path_missions)
