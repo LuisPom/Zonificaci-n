@@ -1,0 +1,41 @@
+name: Generar y publicar mapa
+
+on:
+  push:
+    branches: [ main ]   # o la rama que uses
+  workflow_dispatch:     # permite ejecución manual desde la interfaz de GitHub
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Clonar el repositorio
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # 2. Configurar Python
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      # 3. Instalar dependencias
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+
+      # 4. Ejecutar el script (genera el HTML)
+      - name: Run script
+        run: python mapa_clustering_ecuador.py
+
+      # 5. Publicar en GitHub Pages (rama gh-pages)
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./   # publica todo lo que esté en la raíz
+          publish_branch: gh-pages
+          keep_files: false
+          destination_dir: ./
