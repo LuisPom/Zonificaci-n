@@ -432,8 +432,9 @@ plugins.LocateControl().add_to(m)
 # GUARDAR Y ABRIR EL MAPA
 # =============================================================================
 
-output_file = 'mapa_clustering_ecuador.html'
-m.save(output_file)
+#output_file = 'mapa_clustering_ecuador.html'
+#m.save(output_file)
+m.save('index.html')    #página principal de GitHub Pages
 
 print(f"✅ Mapa guardado como: {output_file}")
 print(f"📊 Total de registros: {len(df)}")
